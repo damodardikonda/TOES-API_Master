@@ -1,0 +1,79 @@
+{% extends 'Sign/home.html' %}
+{ % load static % }
+{% block content %}
+
+    <div class="container-fluid" >
+      <div class="row" style="  margin-top: 108px;" >
+ <center>
+        <form style="margin-left:226px;width:191%">
+            <div class="input-icons">
+                <i class="fa fa-search icon">
+              </i>
+                <input class="input-field"
+                       type="text"
+                       placeholder="Search">
+            </div>
+            </form>
+ </center>
+      <button style="align:float-right;margin-left:145px" class="dropdown-toggle" data-toggle="dropdown" href="#">SELECT ROLE<span class="caret"></span></button>
+
+      <ul class="dropdown-menu" style="margin-top : 50px , margin-left:250px">
+          <li class="Active"><a href="{% url 'workers'%}">ALL</a></li>
+          <li><a href="#">Painters</a></li>
+          <li><a  href="{% url "workerplumber" %}">Plumbers</a></li>
+     </ul>
+
+      </div>
+
+      <div class="row" style="  margin-top:10px;" >
+            <!--Table-->
+              <table class="table table-hover table-fixed" style="margin-left: 226px;margin-right: 25px;">
+
+                    <!--Table head-->
+                    <thead>
+                      <tr>
+                        <th>Sr.No</th>
+                        <th>Name</th>
+                        <th>Phone no.</th>
+                        <th>City</th>
+                        <th>category_1</th>
+                        <th>category_1_vc</th>
+                        <th>category_1_exp</th>
+                        <th>category_2</th>
+                        <th>category_2_vc</th>
+                        <th>category_2_exp</th>
+                        <th>category_3</th>
+                        <th>category _3_vc</th>
+                        <th>category_3_exp</th>
+                      </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                    {% for i in response %}
+                      <tr>
+                        <th scope="row">{{i.id}}</th>
+                        <td>{{i.name}}</td>
+                        <td>{{i.phone}}</td>
+                        <td>{{i.city}}</td>
+                        <td>{{i.category_1}}</td>
+                        <td>{{i.category_1_vc}}</td>
+                        <td>{{i.category_1_ex}}</td>
+                        <td>{{i.category_2}}</td>
+                        <td>{{i.category_2_vc}}</td>
+                        <th>{{i.category_2_ex}}</th>
+                        <th>{{i.category_3}}</th>
+                        <th>{{i.category_3_vc}}</th>
+                        <th>{{i.category_3_ex}}</th>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    <!--Table body-->
+
+                  </table>
+                  <!--Table-->
+        </div>
+    </div>
+
+{% endblock %}
