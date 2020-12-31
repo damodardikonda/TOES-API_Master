@@ -98,12 +98,10 @@ def display_all(request):
 #get specific worker detail with the hekp of contact number
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_specific_worker_details(request,contact):
-
-    print(contact)
+def get_specific_worker_details(request,user_id):
     cursor=connection.cursor()
     #cursor.execute(f"select * from authapp_worker_Details")
-    cursor.execute(f'select * from authapp_user INNER JOIN authapp_workerdetails ON authapp_user.id = authapp_workerdetails.user_id where phone = {contact}')
+    cursor.execute(f'select * from authapp_workerdetails where user_id = {user_id}')
 
     row = cursor.fetchall()
     content = {}

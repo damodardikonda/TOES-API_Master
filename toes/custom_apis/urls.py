@@ -12,7 +12,7 @@ urlpatterns =[
     #Worker_Details
     path('category/<str:category>/', display_by_category ),
     path('allcategories/', display_all ),
-    path('specific/workerdetails/<str:contact>', get_specific_worker_details ),
+    path('specific/workerdetails/<int:user_id>', get_specific_worker_details ),
 
     #Job_Details
     path('specificjobs/<int:user>', display_job ),
